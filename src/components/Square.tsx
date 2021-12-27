@@ -3,15 +3,19 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 
 export interface SquareProps {
-  value: number;
+  value: "X" | "O" | null;
+  onClick(): void;
 }
 
-const Squared = styled.button``;
+const Squared = styled.button`
+  width: 34px;
+  height: 34px;
+`;
 
 const Square = (props: SquareProps) => {
-  const [value, setValue] = useState<string | null>(null);
+  //   const [value, setValue] = useState<string | null>(null);
 
-  return <Squared onClick={() => setValue("X")}>{value}</Squared>;
+  return <Squared onClick={props.onClick}>{props.value}</Squared>;
 };
 
 export default Square;
